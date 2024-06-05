@@ -1,0 +1,156 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="lib/angular-material.min.css">
+</head>
+
+  <!--
+    Your HTML content here
+  -->  
+  
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-animate.min.js"></script>
+	<script src="lib/angular-aria.min.js"></script>  
+	
+	<!-- Angular Material Library -->
+	<script src="lib/angular-material.min.js"></script>
+	
+	<!-- Your application bootstrap  -->
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="style.css">	
+	<script type="text/javascript">   
+	
+	
+	</script>
+
+	<body ng-app="layoutSample" ng-controller="MyCtrl" ng-init="init()">
+		<div>			
+			<md-card class="main-card">				
+				<md-card-title>
+				  <md-card-title-text>
+				   <span class="md-headline" style="margin: 0 auto;">이퀄다이아몬드 가로수길점 (v{{version}})</span>
+				    <p></p>
+					<span class="md-headline">우레탄 붙임머리</span>				
+				  </md-card-title-text>
+				</md-card-title>
+				<md-card-content layout="row">
+					<div layout="coumn" class="checkbox-group1">
+						<md-checkbox ng-model="data.box1.check1" id="box1_chk1">
+							기장섞음 [Q]
+						</md-checkbox>
+						<md-checkbox ng-model="data.box1.check2" id="box1_chk2">
+							특이색상(+2만) [W]
+						</md-checkbox>
+						<md-checkbox ng-model="data.box1.check4" id="box1_chk4">
+							실장 [E]
+						</md-checkbox>
+						<md-checkbox ng-model="data.box1.check3" id="box1_chk3">
+							원장, 부원장 [R]
+						</md-checkbox>
+					</div>
+					<div layout="coumn" class="input-group1">
+						<div layout="row">
+							<span>기장</span>
+							<select ng-model="data.box1.inch">
+								<option value="i18">18인치</option>
+								<option value="i20">20인치</option>
+								<option value="i22">22인치</option>
+								<option value="i24">24인치</option>
+								<option value="i26">26인치</option>
+							</select>
+							<!-- <input type="text" ng-model="data.box1.inch"/> -->
+						</div>
+						<div layout="row">
+							<span>갯수</span>
+							<input type="number" step="1" min="0" ng-model="data.box1.count" ng-keydown="keyDown1($event)" onclick="if(this.value=='.'{this.value=''}">
+						</div>							
+					</div>
+					<div class="result-box">
+						<div class="result-box-title">결과</div>
+						<div class="result-display">{{data.box1.result}}</div>
+					</div>				
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+				  <md-button ng-click="reset1()">리셋</md-button>
+				  <md-button ng-click="calculate1()">계산</md-button>
+				  <span>할인</span>
+				  <select class="discount" ng-model="discount1">
+					<option value="" selected>-</option>
+					<option value="5">5%</option>
+					<option value="10">10%</option>
+					<option value="15">15%</option>
+					<option value="20">20%</option>
+					<option value="25">25%</option>
+					<option value="30">30%</option>
+				  </select>
+				</md-card-actions>
+			  </md-card>
+
+
+
+
+			  <md-card class="main-card">				
+				<md-card-title>
+				  <md-card-title-text>
+					<span class="md-headline">노팁 붙임머리</span>				
+				  </md-card-title-text>
+				</md-card-title>
+				<md-card-content layout="row">
+					<div layout="coumn" class="checkbox-group1">
+						<md-checkbox ng-model="data.box2.check1" id="box2_chk1">
+							기장섞음 (+2만) [A]
+						</md-checkbox>
+						<md-checkbox ng-model="data.box2.check4" id="box2_chk4">
+							실장 [S]
+						</md-checkbox>
+						<md-checkbox ng-model="data.box2.check3" id="box2_chk2">
+							원장, 부원장 [D]
+						</md-checkbox>						
+						
+						
+					</div>
+					<div layout="coumn" class="input-group1">
+						<div layout="row">
+							<span>기장</span>
+							<select ng-model="data.box2.inch">
+								<option value="i18">18인치</option>
+								<option value="i20">20인치</option>
+								<option value="i22">22인치</option>
+							</select>
+							<!-- <input type="text" ng-model="data.box2.inch"/> -->
+						</div>
+						<div layout="row">
+							<span>갯수</span>							
+							<input type="number" step="1" min="0" ng-model="data.box2.count"  ng-keydown="keyDown2($event)">
+						</div>
+					</div>
+					<div class="result-box">
+						<div class="result-box-title">결과</div>
+						<div class="result-display">{{data.box2.result}}</div>
+					</div>
+					
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+				  <md-button ng-click="reset2()">리셋</md-button>
+				  <md-button ng-click="calculate2()">계산</md-button>
+				  <span>할인</span>
+				  <select class="discount" ng-model="discount2">
+					<option value="" selected>-</option>
+					<option value="5">5%</option>
+					<option value="10">10%</option>
+					<option value="15">15%</option>
+					<option value="20">20%</option>
+					<option value="25">25%</option>
+					<option value="30">30%</option>
+				  </select>
+				</md-card-actions>
+			  </md-card>
+		</div>
+		
+
+	</body>
+
+</html>
